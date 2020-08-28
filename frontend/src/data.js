@@ -1,32 +1,36 @@
 export default {
     products: [
         {
-            name: 'Slim Shirt',
+            _id: '1',
+            name: 'Stephen Curry',
             category: 'Shirts',
             image: '/images/currypsa10.jpg',
             team: 'Golden State Warriors',
             price: 1000
         },
         {
-            name: 'Slim Shirt',
+            _id: '2',
+            name: 'Stephen Curry',
             category: 'Shirts',
             image: '/images/currypsa10.jpg',
             team: 'Golden State Warriors',
             price: 1000
         },
         {
-            name: 'Slim Shirt',
+            _id: '3',
+            name: 'Stephen Curry',
             category: 'Pants',
             image: '/images/currypsa10.jpg',
             team: 'Golden State Warriors',
             price: 1234
         },
         {
-            name: 'Slim Shirt',
+            _id: '4',
+            name: 'Stephen Curry',
             category: 'Shirts',
             image: '/images/currypsa10.jpg',
             team: 'Golden State Warriors',
             price: 1000
         }
     ]
-}
+};

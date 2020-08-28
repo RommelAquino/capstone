@@ -1,5 +1,8 @@
 import React from 'react';
 import data from './data';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+import HomeScreen from './Screens/HomeScreen';
+import ProductScreen from './Screens/ProductScreen';
 import './App.css';
 
 function App() {
@@ -12,52 +15,40 @@ function App() {
     document.querySelector(".sidebar").classList.remove("open")
   }
   return (
-    <div classNameName='grid-container'>
-      <header className="header">
-        <div className="brand">
-          <button onClick={openMenu}>
-            &#9776;
+    <BrowserRouter>
+      <div classNameName='grid-container'>
+        <header className="header">
+          <div className="brand">
+            <button onClick={openMenu}>
+              &#9776;
                 </button>
-          <a href="index.html">Cardboard Collectors</a>
-        </div>
-        <div className="header-links">
-          <a href="cart.html">Cart</a>
-          <a href="signin.html">Sign In</a>
-        </div>
-      </header>
+                <Link to ="/" >Cardboard Collectors</Link>
+          </div>
+          <div className="header-links">
+            <a href="cart.html">Cart</a>
+            <a href="signin.html">Sign In</a>
+          </div>
+        </header>
 
-      <aside className="sidebar">
-        <h3>Shopping Categories</h3>
-        <button className="sidebar-close-button" onClick={closeMenu}> X </button>
-        <ul>
-          <li><a href="index.html">Pants</a></li>
-          <li><a href="index.html">Shirts</a></li>
-        </ul>
-      </aside>
-
-      <main className="main">
-        <div className="content">
-          <ul className="products">
-            {
-              data.products.map(product =>
-                <li>
-                  <img src={product.image} alt="Curry" />
-                  <div className={product.name}>
-                    <a href="product.html">{product.name}</a>
-                  </div>
-                  <div className="product-team">{product.team}</div>
-                  <div className="product-price">${product.price}</div>
-                </li>)
-            }
-
-
+        <aside className="sidebar">
+          <h3>Shopping Categories</h3>
+          <button className="sidebar-close-button" onClick={closeMenu}> X </button>
+          <ul>
+            <li><a href="index.html">Pants</a></li>
+            <li><a href="index.html">Shirts</a></li>
           </ul>
-        </div>
-      </main>
-      <footer className="footer">
-        All rights reserved.
-        </footer>
-    </div>
+        </aside>
+
+        <main className="main">
+          <div className="content">
+            <Route path="/products/:id" component={ProductScreen} />
+            <Route path="/" exact={true} component={HomeScreen} />
+
+          </div>
+        </main>
+        <footer className="footer">All right reserved.</footer>
+      </div>
+    </BrowserRouter>
   );
 }
 
