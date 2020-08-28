@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from 'react-modal';
 import data from './data';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import HomeScreen from './Screens/HomeScreen';
 import ProductScreen from './Screens/ProductScreen';
+import ListingScreen from './Listings/Listing'
 import './App.css';
 
 function App() {
@@ -14,6 +16,9 @@ function App() {
   const closeMenu = () => {
     document.querySelector(".sidebar").classList.remove("open")
   }
+
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+
   return (
     <BrowserRouter>
       <div classNameName='grid-container'>
@@ -22,10 +27,12 @@ function App() {
             <button onClick={openMenu}>
               &#9776;
                 </button>
-                <Link to ="/" >Cardboard Collectors</Link>
+            <Link to="/" >Cardboard Collectors</Link>
           </div>
           <div className="header-links">
-            <a href="cart.html">Cart</a>
+
+
+            <a href="sell.html">Sell</a>
             <a href="signin.html">Sign In</a>
           </div>
         </header>
@@ -38,8 +45,18 @@ function App() {
             <li><a href="index.html">Shirts</a></li>
           </ul>
         </aside>
-
         <main className="main">
+
+          {/* ----- Sell Button ----- */}
+          <div className="sellButton">
+            <button onClick={() => setModalIsOpen(true)}>Open Modal</button>
+            <Modal isOpen={modalIsOpen}>
+              <h2>Title</h2>
+              <p>Body</p>
+            </Modal>
+          </div>
+
+
           <div className="content">
             <Route path="/products/:id" component={ProductScreen} />
             <Route path="/" exact={true} component={HomeScreen} />
