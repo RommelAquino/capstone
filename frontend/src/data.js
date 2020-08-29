@@ -13,7 +13,7 @@ export default {
             name: 'LeBron James',
             category: 'Basketball',
             image: '/images/lebron.jpg',
-            team: 'Cleveland CavaLiers',
+            team: 'Cleveland Cavaliers',
             price: 2500
         },
         {
