@@ -74,6 +74,23 @@ a:hover {
 
 /* ------------- Home Screen -------------- */
 
+.sellButton{
+  position: absolute;
+  right: 0;
+  background-color: rgb(132, 249, 132);
+  font-size: 20px;
+  padding: 10px;
+  margin: 20px;
+  margin-bottom: 50px;
+  border-radius: 5%;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.sellButton:hover{
+  background-color: orange
+}
+
 .products{
   display: flex;
   justify-content: center;
@@ -91,7 +108,7 @@ a:hover {
 }
 
 .product{
-  display: flex;
+  /* display: flex; */
 }
 
 .product-name{

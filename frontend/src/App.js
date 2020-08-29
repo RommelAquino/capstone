@@ -7,6 +7,8 @@ import ProductScreen from './Screens/ProductScreen';
 import ListingScreen from './Listings/Listing'
 import './App.css';
 
+Modal.setAppElement('#root')
+
 function App() {
 
   const openMenu = () => {
@@ -21,7 +23,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div classNameName='grid-container'>
+      <div className='grid-container'>
         <header className="header">
           <div className="brand">
             <button onClick={openMenu}>
@@ -30,10 +32,8 @@ function App() {
             <Link to="/" >Cardboard Collectors</Link>
           </div>
           <div className="header-links">
-
-
-            <a href="sell.html">Sell</a>
             <a href="signin.html">Sign In</a>
+            <a href="register.html">Register</a>
           </div>
         </header>
 
@@ -41,18 +41,25 @@ function App() {
           <h3>Shopping Categories</h3>
           <button className="sidebar-close-button" onClick={closeMenu}> X </button>
           <ul>
-            <li><a href="index.html">Pants</a></li>
-            <li><a href="index.html">Shirts</a></li>
+            <li><a href="index.html">Basketball</a></li>
+            <li><a href="index.html">Baseball</a></li>
+            <li><a href="index.html">Football</a></li>
           </ul>
         </aside>
         <main className="main">
 
-          {/* ----- Sell Button ----- */}
-          <div className="sellButton">
-            <button onClick={() => setModalIsOpen(true)}>Open Modal</button>
-            <Modal isOpen={modalIsOpen}>
+          {/* ----- Sell Modal Button ----- */}
+          <div className="sellModal">
+            <button className="sellButton" onClick={() => setModalIsOpen(true)}>Sell your cards!</button>
+            <Modal 
+            isOpen={modalIsOpen}
+            shouldCloseOnOverlayClick={true}
+            onRequestClose={() => setModalIsOpen(false)}>
               <h2>Title</h2>
               <p>Body</p>
+              <div>
+                <button onClick ={() => setModalIsOpen(false)}>Close</button>
+              </div>
             </Modal>
           </div>
 
