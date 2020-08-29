@@ -18,12 +18,14 @@ const show = (req, res) => {
     db.Product.findById(req.params.id, (err, foundProduct) => {
         if (err) console.log('Error in product #show:', err);
         res.status(200).json(foundProduct); // puts in json format
+
     });
 };
 
 
 // Create
 const create = (req, res) => {
+    console.log(req.body)
     db.Product.create(req.body, (err, newProduct) => {
         if (err) console.log('Error in product #create:', err);
         res.status(200).json(newProduct);

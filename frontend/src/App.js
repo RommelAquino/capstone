@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Modal from 'react-modal';
 import data from './data';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
@@ -18,6 +19,37 @@ function App() {
   const closeMenu = () => {
     document.querySelector(".sidebar").classList.remove("open")
   }
+
+
+  // ---- getProducts
+  const getProducts = async() => {
+    const response = await axios.get('http://localhost:3001/api/v1/product')
+    return response;
+  }
+  const testFunction = async() => {
+    const data = await getProducts();
+    console.log("tf1", data);
+  }
+  testFunction();
+
+
+
+  // ----- postProducts
+  const postProducts = async() => {
+    const response = await axios.post('http://localhost:3001/api/v1/product', {
+      image: "http://localhost:3000/images/currypsa10.jpg",
+      name: "Stephen Curry",
+      team: "Warriors",
+      price: 1000
+    })
+    return response;
+  }
+  
+  const testFunction2 = async() => {
+    const data = await postProducts();
+    console.log(data);
+  }
+  testFunction2();
 
   const [modalIsOpen, setModalIsOpen] = useState(false)
   console.log(ProductScreen)
@@ -50,26 +82,26 @@ function App() {
 
           {/* ----- Sell Modal Button ----- */}
           <div className="sellModalForm">
-            
-              <button className="sellButton" onClick={() => setModalIsOpen(true)}>Sell your cards!</button>
-              <Modal
-                isOpen={modalIsOpen}
-                shouldCloseOnOverlayClick={true}
-                onRequestClose={() => setModalIsOpen(false)}>
-                <form>
-                  <label>Player:</label>
-                  <input type="text" name="Player" />
-                  <label>Team:</label>
-                  <input type="text" name="Team" />
-                  <label>Price:</label>
-                  <input type="text" name="Price" />
-                  <input type="submit" value="Submit" />
-                </form>
-                <div>
-                  <button onClick={() => setModalIsOpen(false)}>Close</button>
-                </div>
-              </Modal>
-            
+
+            <button className="sellButton" onClick={() => setModalIsOpen(true)}>Sell your cards!</button>
+            <Modal
+              isOpen={modalIsOpen}
+              shouldCloseOnOverlayClick={true}
+              onRequestClose={() => setModalIsOpen(false)}>
+              <form>
+                <label>Player:</label>
+                <input type="text" name="Player" />
+                <label>Team:</label>
+                <input type="text" name="Team" />
+                <label>Price:</label>
+                <input type="text" name="Price" />
+                <input type="submit" value="Submit" />
+              </form>
+              <div>
+                <button onClick={() => setModalIsOpen(false)}>Close</button>
+              </div>
+            </Modal>
+
           </div>
 
 

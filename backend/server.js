@@ -9,7 +9,8 @@ const PORT = process.env.PORT || 3001;
 const productRoutes = require('./routes/productRoute')
 
 const corsOption = {
-    origin: process.env.REACT_APP_URL,
+    // origin: process.env.REACT_APP_URL,
+    origin: "*",
     credentials: true,
     optionSuccessStatus: 200
 }
