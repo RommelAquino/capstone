@@ -6,7 +6,7 @@ const app = express(); // always need for express app
 
 
 // ------ Controllers ----------------
-const listingCtrl = require('./controllers/listingController')
+const productCtrl = require('./controllers/productController')
 
 // --------- Routes --------------------
 app.get("/api/products", (req, res) => {
@@ -14,7 +14,7 @@ app.get("/api/products", (req, res) => {
 });
 
 // Listing Route
-app.use('/library', listingCtrl);
+app.use('/product/:id', listingCtrl);
 
 
 // ---------------- Server Listener ---
