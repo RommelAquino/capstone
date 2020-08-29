@@ -20,7 +20,7 @@ function App() {
   }
 
   const [modalIsOpen, setModalIsOpen] = useState(false)
-
+  console.log(ProductScreen)
   return (
     <BrowserRouter>
       <div className='grid-container'>
@@ -51,23 +51,29 @@ function App() {
           {/* ----- Sell Modal Button ----- */}
           <div className="sellModal">
             <button className="sellButton" onClick={() => setModalIsOpen(true)}>Sell your cards!</button>
-            <Modal 
-            isOpen={modalIsOpen}
-            shouldCloseOnOverlayClick={true}
-            onRequestClose={() => setModalIsOpen(false)}>
-              <h2>Title</h2>
-              <p>Body</p>
+            <Modal
+              isOpen={modalIsOpen}
+              shouldCloseOnOverlayClick={true}
+              onRequestClose={() => setModalIsOpen(false)}>
+              <form>
+                <label>Player:</label>
+                <input type="text" name="Player" />
+                <label>Team:</label>
+                <input type="text" name="Team" />
+                <label>Price:</label>
+                <input type="text" name="Price" />
+                <input type="submit" value="Submit" />
+              </form>
               <div>
-                <button onClick ={() => setModalIsOpen(false)}>Close</button>
+                <button onClick={() => setModalIsOpen(false)}>Close</button>
               </div>
             </Modal>
           </div>
 
 
           <div className="content">
-            <Route path="/products/:id" component={ProductScreen} />
+            <Route path="/product/:id" component={ProductScreen} />
             <Route path="/" exact={true} component={HomeScreen} />
-
           </div>
         </main>
         <footer className="footer">All right reserved.</footer>

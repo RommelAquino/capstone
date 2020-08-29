@@ -16,7 +16,7 @@ function HomeScreen(props) {
                             </div>
                             <div className="product-team">{product.team}</div>
                             <div className="product-price">${product.price}</div>
-                        </div>
+                        </div>  
                     </li>)
             }
         </ul>
