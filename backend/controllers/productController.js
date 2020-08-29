@@ -13,7 +13,7 @@ const index = (req, res) => {
 const show = (req, res) => {
     db.Product.findById(req.params.id, (err, foundProduct) => {
         if (err) console.log('Error in product #show:', err);
-        res.status(200).json(foundProduct);
+        res.status(200).json(foundProduct); // puts in json format
     });
 };
 

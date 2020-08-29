@@ -4,7 +4,7 @@ require('dotenv').config();
 
 
 const app = express(); // always need for express app
-const routes = require('./productRoutes')
+const routes = require('./routes/productRoute')
 
 const PORT = process.env.PORT || 5000;
 
@@ -17,12 +17,11 @@ app.get("/", (req, res) => {
     res.send(routes);
 });
 
-app.get("/product/id", (req, res) => {
-    res.send(data.products._id);
-});
+// app.get("/product/id", (req, res) => {
+//     res.send(data.products._id);
+// });
 
-// Listing Route
-app.use('/product/:id', listingCtrl);
+
 
 
 // ---------------- Server Listener ------------
