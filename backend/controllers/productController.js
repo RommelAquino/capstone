@@ -1,11 +1,15 @@
 const db = require('../models')
 
 
+
 // Read
 const index = (req, res) => {
-    db.Product.find({}, (err, foundProducts) => {
+    db.Product.find({}, (err, foundProduct) => {
         if (err) console.log('Error in products #index:', err);
-        res.status(200).json(foundProducts);
+        res.status(200).json({
+            status: 200,
+            data: foundProduct
+        });
     });
 };
 
@@ -16,8 +20,6 @@ const show = (req, res) => {
         res.status(200).json(foundProduct); // puts in json format
     });
 };
-
-
 
 
 // Create
@@ -43,8 +45,6 @@ const update = (req, res) => {
 };
 
 
-
-
 // Destroy
 const destroy = (req, res) => {
     db.Product.findByIdAndDelete(req.params.id, (err, deletedProduct) => {
@@ -55,8 +55,8 @@ const destroy = (req, res) => {
 
 module.exports = {
     index,
-    create,
-    show,
-    update,
-    destroy
+    create
+    // show,
+    // update,
+    // destroy
 }

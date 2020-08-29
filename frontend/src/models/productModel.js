@@ -8,6 +8,10 @@ class ProductModel {
         return fetch(`${url}/product/${productId}`)
             .then((response) => response.json());
     };
+    static deleteProduct = (productId) => {
+        return fetch(`${url}/product/${productId}`)
+        .then((response) => response.json());
+    }
 }
 
 export default ProductModel;

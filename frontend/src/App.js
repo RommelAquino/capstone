@@ -49,25 +49,27 @@ function App() {
         <main className="main">
 
           {/* ----- Sell Modal Button ----- */}
-          <div className="sellModal">
-            <button className="sellButton" onClick={() => setModalIsOpen(true)}>Sell your cards!</button>
-            <Modal
-              isOpen={modalIsOpen}
-              shouldCloseOnOverlayClick={true}
-              onRequestClose={() => setModalIsOpen(false)}>
-              <form>
-                <label>Player:</label>
-                <input type="text" name="Player" />
-                <label>Team:</label>
-                <input type="text" name="Team" />
-                <label>Price:</label>
-                <input type="text" name="Price" />
-                <input type="submit" value="Submit" />
-              </form>
-              <div>
-                <button onClick={() => setModalIsOpen(false)}>Close</button>
-              </div>
-            </Modal>
+          <div className="sellModalForm">
+            
+              <button className="sellButton" onClick={() => setModalIsOpen(true)}>Sell your cards!</button>
+              <Modal
+                isOpen={modalIsOpen}
+                shouldCloseOnOverlayClick={true}
+                onRequestClose={() => setModalIsOpen(false)}>
+                <form>
+                  <label>Player:</label>
+                  <input type="text" name="Player" />
+                  <label>Team:</label>
+                  <input type="text" name="Team" />
+                  <label>Price:</label>
+                  <input type="text" name="Price" />
+                  <input type="submit" value="Submit" />
+                </form>
+                <div>
+                  <button onClick={() => setModalIsOpen(false)}>Close</button>
+                </div>
+              </Modal>
+            
           </div>
 
 

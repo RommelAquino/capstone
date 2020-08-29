@@ -6,7 +6,7 @@ export default {
             category: 'Basketball',
             image: '/images/currypsa10.jpg',
             team: 'Golden State Warriors',
-            price: 1500
+            price: 4500
         },
         {
             _id: '2',
@@ -14,7 +14,7 @@ export default {
             category: 'Basketball',
             image: '/images/lebron.jpg',
             team: 'Cleveland Cavaliers',
-            price: 2500
+            price: 21500
         },
         {
             _id: '3',
@@ -22,7 +22,7 @@ export default {
             category: 'Basketball',
             image: '/images/currypsa10.jpg',
             team: 'Golden State Warriors',
-            price: 1600
+            price: 3600
         },
         {
             _id: '4',
@@ -30,7 +30,7 @@ export default {
             category: 'Basketball',
             image: '/images/currypsa10.jpg',
             team: 'Golden State Warriors',
-            price: 1000
+            price: 5100
         }
     ]
 };
