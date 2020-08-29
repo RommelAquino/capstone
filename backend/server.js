@@ -1,10 +1,10 @@
-const express = require('express'); //from documentation: express is function
-const app = express();//app is an object
+import express from 'express';
+import data from './data';
 
-app.get('/somedata', (request, response) => {
-    response.send('here is your information');
+const app = express();
+
+app.get("/api/products", (req, res) => {
+    res.send(data.products);
 });
 
-app.listen(3000, () => {
-    console.log("I am listening");
-});
+app.listen(5000, () => { console.log("Server started at localhost:5000") })
