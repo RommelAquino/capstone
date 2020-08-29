@@ -6,28 +6,28 @@ export default {
             category: 'Basketball',
             image: '/images/currypsa10.jpg',
             team: 'Golden State Warriors',
-            price: 1000
+            price: 1500
         },
         {
             _id: '2',
             name: 'LeBron James',
             category: 'Basketball',
             image: '/images/lebron.jpg',
-            team: 'Golden State Warriors',
-            price: 1000
+            team: 'Cleveland CavaLiers',
+            price: 2500
         },
         {
             _id: '3',
             name: 'Stephen Curry',
-            category: 'Baseball',
+            category: 'Basketball',
             image: '/images/currypsa10.jpg',
             team: 'Golden State Warriors',
-            price: 1234
+            price: 1600
         },
         {
             _id: '4',
             name: 'Stephen Curry',
-            category: 'Football',
+            category: 'Basketball',
             image: '/images/currypsa10.jpg',
             team: 'Golden State Warriors',
             price: 1000
