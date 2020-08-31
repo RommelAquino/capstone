@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
 import data from './data';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Switch, withRouter } from 'react-router-dom';
 import HomeScreen from './components/HomeScreen';
 import ProductScreen from './components/ProductScreen';
-import ListingScreen from './Listings/Listing'
 // import PostModel from './models/postModel'
 import ProductModel from '../src/models/productModel'
 import './App.css';
@@ -43,7 +42,13 @@ class App extends React.Component {
       price: parseFloat(this.state.price)
     }
     ProductModel.createProduct(data)
-      .then(response => console.log(response))
+      .then((response) => {
+        console.log(response)
+        this.setState({
+          modalIsOpen: false
+        })
+        // this.props.history.push()
+      });
   }
 
 
@@ -84,7 +89,8 @@ class App extends React.Component {
   // console.log(ProductScreen)
   render() {
     return (
-      <BrowserRouter>
+      // empty element that doesn;t create any html i the browser
+      <React.Fragment>
         <div className='grid-container'>
           <header className="header">
             <div className="brand">
@@ -126,7 +132,9 @@ class App extends React.Component {
                   <label>Price:</label>
                   <input onChange={this.handleInputChange} type="text" value={this.state.price} name="price" />
                   <div>
-                    <button onClick={this.submitProduct} className="sellButton">{this.state.submitProduct}</button>
+                    <Link to={"/"}>
+                      <button onClick={this.submitProduct} className="sellButton">Post my Card!</button>
+                    </Link>
                   </div>
 
                 </form>
@@ -139,16 +147,19 @@ class App extends React.Component {
 
 
             <div className="content">
-              <Route path="/product/:id" component={ProductScreen} />
-              <Route path="/" exact={true} component={HomeScreen} />
+              <Switch>
+                <Route path="/product/:id" component={ProductScreen} />
+                <Route path="/" exact={true} component={HomeScreen} />
+              </Switch>
             </div>
           </main>
           <footer className="footer">All right reserved.</footer>
         </div>
-      </BrowserRouter>
+      </React.Fragment>
     );
   }
 
 }
 
-export default App;
+export default withRouter(App); 
+//withRouter a way to get acces to get any information that is within a router

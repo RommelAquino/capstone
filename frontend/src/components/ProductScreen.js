@@ -1,6 +1,7 @@
 import React, { component } from 'react';
-import App from '../App';
 import data from '../data';
+
+
 
 function ProductScreen(props) {
 

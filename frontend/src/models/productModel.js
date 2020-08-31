@@ -1,4 +1,4 @@
-const url = `http://localhost:3001/api/v1`; // ??? you might need the (/)
+const url = `http://localhost:3001/api/v1/product`; // ??? you might need the (/)
 //  url goes from this file to localhost:5000 to backend/server.js routes
 class ProductModel {
 
@@ -12,10 +12,11 @@ class ProductModel {
     };
 
     static createProduct = (productId) => {
-        return fetch(`${url}/product`, {
+        // return fetch(`${url}/product/:id`, {
+        return fetch(url, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(productId),
         })
