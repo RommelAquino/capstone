@@ -1,4 +1,5 @@
 import React from 'react';
+import App from '../App';
 import data from '../data';
 
 function ProductScreen(props) {
@@ -13,7 +14,7 @@ function ProductScreen(props) {
                 <img src={product.image} alt="Curry" />
             </div>
             <div><h1>{product.name}</h1></div>
-            <div><h1>{product.category}</h1></div>
+            {/* <div><h1>{product.category}</h1></div> */}
             <div><h1>{product.team}</h1></div>
             <div><h1>${product.price}</h1></div>
             <div>
