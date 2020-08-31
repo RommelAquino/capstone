@@ -16,8 +16,15 @@ class App extends React.Component {
   state = {
     name: "",
     team: "",
+    cards: [],
     price: 0,
     modalIsOpen: false
+  }
+
+  async componentDidMount() {
+    const response = await axios.get('http://localhost:3001/api/v1/product');
+    this.setState({ cards: response.data });
+    console.log(response);
   }
 
   openMenu = () => {
@@ -48,6 +55,7 @@ class App extends React.Component {
           modalIsOpen: false
         })
         // this.props.history.push()
+        this.setState({ cards: [...this.state.cards, response] });
       });
   }
 
@@ -149,7 +157,8 @@ class App extends React.Component {
             <div className="content">
               <Switch>
                 <Route path="/product/:id" component={ProductScreen} />
-                <Route path="/" exact={true} component={HomeScreen} />
+                <Route path='/' exact={true} render={() => <HomeScreen cards={this.state.cards} />} />
+                {/* <Route path="/" exact={true} component={HomeScreen} />  */}
               </Switch>
             </div>
           </main>
@@ -161,5 +170,5 @@ class App extends React.Component {
 
 }
 
-export default withRouter(App); 
+export default withRouter(App);
 //withRouter a way to get acces to get any information that is within a router
