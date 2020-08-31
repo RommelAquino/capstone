@@ -14,6 +14,7 @@ Modal.setAppElement('#root')
 class App extends React.Component {
 
   state = {
+    image: "",
     name: "",
     team: "",
     cards: [],
@@ -44,6 +45,7 @@ class App extends React.Component {
   submitProduct = (event) => {
     event.preventDefault();
     const data = {
+      image: this.state.image,
       name: this.state.name,
       team: this.state.team,
       price: parseFloat(this.state.price)
@@ -133,6 +135,8 @@ class App extends React.Component {
                 shouldCloseOnOverlayClick={true}
                 onRequestClose={() => this.setModalIsOpen(false)}>
                 <form>
+                  <label>Image URl:</label>
+                  <input onChange={this.handleInputChange} type="text" value={this.state.image} name="image" />
                   <label>Player:</label>
                   <input onChange={this.handleInputChange} type="text" value={this.state.player} name="name" />
                   <label>Team:</label>
