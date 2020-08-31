@@ -3,8 +3,8 @@ import axios from 'axios';
 import Modal from 'react-modal';
 import data from './data';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-import HomeScreen from './Screens/HomeScreen';
-import ProductScreen from './Screens/ProductScreen';
+import HomeScreen from './components/HomeScreen';
+import ProductScreen from './components/ProductScreen';
 import ListingScreen from './Listings/Listing'
 // import PostModel from './models/postModel'
 import ProductModel from '../src/models/productModel'
@@ -43,7 +43,7 @@ class App extends React.Component {
       price: parseFloat(this.state.price)
     }
     ProductModel.createProduct(data)
-    .then(response=>console.log(response))
+      .then(response => console.log(response))
   }
 
 
@@ -126,7 +126,7 @@ class App extends React.Component {
                   <label>Price:</label>
                   <input onChange={this.handleInputChange} type="text" value={this.state.price} name="price" />
                   <div>
-                    <button onClick={this.submitProduct} className="sellButton">Sell My Card</button>
+                    <button onClick={this.submitProduct} className="sellButton">{this.state.submitProduct}</button>
                   </div>
 
                 </form>

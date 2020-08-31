@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { component } from 'react';
 import App from '../App';
 import data from '../data';
 
 function ProductScreen(props) {
-    
 
     const product = data.products.find(x => x._id === props.match.params.id)
-    
+
     console.log({ product })
     return (
         <div>
@@ -19,7 +18,7 @@ function ProductScreen(props) {
             <div><h1>${product.price}</h1></div>
             <div>
                 <button>Edit</button>
-                <button>Delete</button>
+                <button onClick={() => this.deleteProduct(product.id)}>Delete</button>
             </div>
         </div>
     )
