@@ -6,10 +6,15 @@ class ProductModel {
         return fetch(url).then((response) => response.json());
     };
 
+    
     static getProductById = (productId) => {
-        return fetch(`${url}/product/${productId}`)
-            .then((response) => response.json());
-    };
+		return fetch(`${url}/${productId}`).then((response) => response.json());
+	};
+    
+    // static getProductById = (productId) => {
+    //     return fetch(`${url}/product/${productId}`)
+    //         .then((response) => response.json());
+    // };
 
     static createProduct = (productId) => {
         // return fetch(`${url}/product/:id`, {

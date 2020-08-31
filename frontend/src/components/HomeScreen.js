@@ -10,9 +10,9 @@ function HomeScreen({ cards }) {
 			return (
 				<li>
 					<div className='product'>
-						{/* <Link to={'/product/' + product._id}>
+						<Link to={'/product/' + product._id}>
                         <img src={product.image} alt='Curry' />
-                    </Link> */}
+                    </Link>
 						<div className='product.name'>
 							<Link to={'/product/' + product._id}>{product.name}</Link>
 						</div>
