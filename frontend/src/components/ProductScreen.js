@@ -8,7 +8,8 @@ import Modal from 'react-modal';
 function ProductScreen(props) {
     const [product, setProduct] = useState({}); //product gets updated by setProduct
     const [modalIsOpen, setModalIsOpen] = useState(false); //modalIsOpen gets updated by setModalIsOpen
-    const [text, setText] = useState(""); //product gets updated by setProduct
+    const [text, setText] = useState(""); //test gets updated by setText
+    const [teamText, setTeamText] = useState(""); //product gets updated by setProduct
     useEffect(() => {
         const fetch = async () => {
             console.log(props.match.params.id);
@@ -40,22 +41,22 @@ function ProductScreen(props) {
         // const {state}=this
         // const {image, name, team, price}=state
         const data = {
-                name: text
-                // team: team,
-                // image: image,
-                // price: parseFloat(price),
-            };
+            name: text
+            // team: team,
+            // image: image,
+            // price: parseFloat(price),
+        };
         ProductModel.updateProduct(data, product._id)
-          .then((response) => {
-              setProduct(response)
-              setModalIsOpen(false);
-            // this.setState({
-            //   modalIsOpen: false
-            // })
-            // this.props.history.push()
-            // this.setState({ cards: [...this.state.cards, response] });
-          });
-      }
+            .then((response) => {
+                setProduct(response)
+                setModalIsOpen(false);
+                // this.setState({
+                //   modalIsOpen: false
+                // })
+                // this.props.history.push()
+                // this.setState({ cards: [...this.state.cards, response] });
+            });
+    }
 
 
 
@@ -84,7 +85,6 @@ function ProductScreen(props) {
                         <form onSubmit={submitProduct}>
                             <label>Player:</label>
                             <input onChange={(e) => setText(e.target.value)} type="text" value={text} name="name" />
-
                             <button type="submit">Update</button>
                         </form>
 
