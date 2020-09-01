@@ -10,9 +10,11 @@ function HomeScreen({ cards }) {
 			return (
 				<li>
 					<div className='product'>
-						<Link to={'/product/' + product._id}>
-                        <img src={product.image} alt='Curry' />
-                    </Link>
+						<div className='product-image'>
+							<Link to={'/product/' + product._id}>
+								<img src={product.image} alt='Curry' />
+							</Link>
+						</div>
 						<div className='product.name'>
 							<Link to={'/product/' + product._id}>{product.name}</Link>
 						</div>
@@ -54,7 +56,7 @@ export default HomeScreen;
 //                 }
 //             </ul>
 //         );
-        
+
 //     });
 //     return {productList}
 // }

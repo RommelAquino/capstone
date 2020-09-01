@@ -24,8 +24,8 @@ class App extends React.Component {
       price: 0,
       modalIsOpen: false
     }
-    this.submitProduct=this.submitProduct.bind(this)
-    this.getProducts2=this.getProducts2.bind(this)
+    this.submitProduct = this.submitProduct.bind(this)
+    this.getProducts2 = this.getProducts2.bind(this)
   }
 
 
@@ -40,7 +40,7 @@ class App extends React.Component {
   //   this.getProducts()
   // }
 
-  async getProducts2 (){
+  async getProducts2() {
     const response = await axios.get('http://localhost:3001/api/v1/product');
     this.setState({ cards: response.data });
   }
@@ -59,18 +59,18 @@ class App extends React.Component {
     })
   }
 
-  
 
-  submitProduct(event){
+
+  submitProduct(event) {
     event.preventDefault();
     // const {state}=this
     // const {image, name, team, price}=state
     const data = {
-			name: this.state.name,
-			team: this.state.team,
-			image: this.state.image,
-			price: parseFloat(this.state.price),
-		};
+      name: this.state.name,
+      team: this.state.team,
+      image: this.state.image,
+      price: parseFloat(this.state.price),
+    };
     ProductModel.createProduct(data)
       .then((response) => {
         console.log(response)
@@ -105,8 +105,8 @@ class App extends React.Component {
   setModalIsOpen = (boolean) => {
     this.setState({ modalIsOpen: boolean })
   }
-  
-  
+
+
   render() {
     console.log(this.getProducts)
     return (
@@ -141,11 +141,12 @@ class App extends React.Component {
             <div className="sellModalForm">
 
               <button className="sellButton" onClick={() => this.setModalIsOpen(true)}>Sell your cards!</button>
+
               <Modal
                 isOpen={this.state.modalIsOpen}
                 shouldCloseOnOverlayClick={true}
                 onRequestClose={() => this.setModalIsOpen(false)}>
-                <form>
+                <form className='modalForm'>
                   <label>Image URl:</label>
                   <input onChange={this.handleInputChange} type="text" value={this.state.image} name="image" />
                   <label>Player:</label>
@@ -166,7 +167,9 @@ class App extends React.Component {
                 </div>
               </Modal>
 
+
             </div>
+
 
 
             <div className="content">
