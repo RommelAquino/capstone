@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import ProductModel from '../models/productModel';
 
 
+
 function ProductScreen(props) {
 	const [product, setProduct] = useState({});
 	useEffect(() => {
@@ -14,11 +15,14 @@ function ProductScreen(props) {
 		};
 		fetch();
     }, []);
+
+    console.log(props)
     
-    const handleDelete = () => {
-        ProductModel.deleteProduct(product._id)
+    const handleDelete = async () => {
+        await ProductModel.deleteProduct(product._id)
           .then((product) => props.history.push('/'))
           .catch((err) => console.log(err));
+        await props.getProducts();
       };
 
 
@@ -43,7 +47,8 @@ function ProductScreen(props) {
 		</div>
 	);
 }
-export default withRouter(ProductScreen);
+export default ProductScreen;
+// export default withRouter(ProductScreen);
 
 
 
@@ -75,3 +80,10 @@ export default withRouter(ProductScreen);
 //     )
 // }
 // export default ProductScreen;
+
+
+
+
+
+
+

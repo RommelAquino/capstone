@@ -25,15 +25,24 @@ class App extends React.Component {
       modalIsOpen: false
     }
     this.submitProduct=this.submitProduct.bind(this)
+    this.getProducts2=this.getProducts2.bind(this)
   }
 
-  
 
   async componentDidMount() {
     console.log('test')
     const response = await axios.get('http://localhost:3001/api/v1/product');
     this.setState({ cards: response.data });
     console.log(response);
+  }
+
+  // componentDidMount() {
+  //   this.getProducts()
+  // }
+
+  async getProducts2 (){
+    const response = await axios.get('http://localhost:3001/api/v1/product');
+    this.setState({ cards: response.data });
   }
 
   openMenu = () => {
@@ -99,7 +108,7 @@ class App extends React.Component {
   
   
   render() {
-    console.log(this.state)
+    console.log(this.getProducts)
     return (
       // empty element that doesn;t create any html i the browser
       <React.Fragment>
@@ -162,7 +171,8 @@ class App extends React.Component {
 
             <div className="content">
               <Switch>
-                <Route path="/product/:id" component={ProductScreen} handleDelete={this.handleDelete} />
+                <Route path="/product/:id" render={(props) => (<ProductScreen {...props} getProducts={this.getProducts2} />)
+                } handleDelete={this.handleDelete} />
                 <Route path='/' exact={true} render={() => <HomeScreen cards={this.state.cards} />} />
                 {/* <Route path="/" exact={true} component={HomeScreen} />  */}
               </Switch>
