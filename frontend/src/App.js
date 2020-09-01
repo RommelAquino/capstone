@@ -11,18 +11,26 @@ import './App.css';
 
 Modal.setAppElement('#root')
 
-class App extends React.Component {
 
-  state = {
-    image: "",
-    name: "",
-    team: "",
-    cards: [],
-    price: 0,
-    modalIsOpen: false
+// class based components used (this.)
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      image: "",
+      name: "",
+      team: "",
+      cards: [],
+      price: 0,
+      modalIsOpen: false
+    }
+    this.submitProduct=this.submitProduct.bind(this)
   }
 
+  
+
   async componentDidMount() {
+    console.log('test')
     const response = await axios.get('http://localhost:3001/api/v1/product');
     this.setState({ cards: response.data });
     console.log(response);
@@ -42,14 +50,18 @@ class App extends React.Component {
     })
   }
 
-  submitProduct = (event) => {
+  
+
+  submitProduct(event){
     event.preventDefault();
+    // const {state}=this
+    // const {image, name, team, price}=state
     const data = {
-      image: this.state.image,
-      name: this.state.name,
-      team: this.state.team,
-      price: parseFloat(this.state.price)
-    }
+			name: this.state.name,
+			team: this.state.team,
+			image: this.state.image,
+			price: parseFloat(this.state.price),
+		};
     ProductModel.createProduct(data)
       .then((response) => {
         console.log(response)
@@ -67,11 +79,6 @@ class App extends React.Component {
     const response = await axios.get('http://localhost:3001/api/v1/product')
     return response;
   }
-  // testFunction = async () => {
-  //   const data = await getProducts();
-  //   console.log("tf1", data);
-  // }
-  // testFunction();
 
 
 
@@ -86,18 +93,13 @@ class App extends React.Component {
     return response;
   }
 
-  // testFunction2 = async () => {
-  //   const data = await postProducts();
-  //   console.log(data);
-  // }
-  // testFunction2();
   setModalIsOpen = (boolean) => {
     this.setState({ modalIsOpen: boolean })
   }
-  // [modalIsOpen, setModalIsOpen] = useState(false)
-  // console.log("Modal is Open = ", modalIsOpen)
-  // console.log(ProductScreen)
+  
+  
   render() {
+    console.log(this.state)
     return (
       // empty element that doesn;t create any html i the browser
       <React.Fragment>
@@ -160,7 +162,7 @@ class App extends React.Component {
 
             <div className="content">
               <Switch>
-                <Route path="/product/:id" component={ProductScreen} />
+                <Route path="/product/:id" component={ProductScreen} handleDelete={this.handleDelete} />
                 <Route path='/' exact={true} render={() => <HomeScreen cards={this.state.cards} />} />
                 {/* <Route path="/" exact={true} component={HomeScreen} />  */}
               </Switch>

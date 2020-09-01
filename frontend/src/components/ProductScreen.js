@@ -21,6 +21,7 @@ function ProductScreen(props) {
           .catch((err) => console.log(err));
       };
 
+
 	return (
 		<div>
 			<div>
@@ -37,8 +38,7 @@ function ProductScreen(props) {
 			</div>
 			<div>
 				<button>Edit</button>
-				<button onClick={(handleDelete)}>Delete</button>
-				{/* <button onClick={() => this.deleteProduct(product.id)}>Delete</button> */}
+				<button onClick={handleDelete}>Delete</button>
 			</div>
 		</div>
 	);
@@ -64,7 +64,7 @@ export default withRouter(ProductScreen);
 //                 <img src={product.image} alt="" />
 //             </div>
 //             <div><h1>{product.name}</h1></div>
-            
+
 //             <div><h1>{product.team}</h1></div>
 //             <div><h1>{product.price}</h1></div>
 //             <div>
