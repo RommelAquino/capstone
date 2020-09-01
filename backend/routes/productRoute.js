@@ -8,7 +8,7 @@ router.get('/:id', controller.show);
 
 router.post('/', controller.create)
 
-// router.put('/product/:id', controller.update)
+router.put('/product/:id', controller.update)
 
 router.delete('/product/:id', controller.destroy)
 

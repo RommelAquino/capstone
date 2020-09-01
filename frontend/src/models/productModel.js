@@ -29,7 +29,7 @@ class ProductModel {
     }
 
     static updateProduct = (product, id) => {
-        return fetch(`${url}/${id}`, {
+        return fetch(`${url}/product/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
