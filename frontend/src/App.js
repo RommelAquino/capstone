@@ -143,8 +143,39 @@ class App extends React.Component {
               <button className="sellButton" onClick={() => this.setModalIsOpen(true)}>Sell your cards!</button>
 
               <Modal
+                // className={"sellModalForm"}
                 isOpen={this.state.modalIsOpen}
                 shouldCloseOnOverlayClick={true}
+                // overlayClassName={"overlay"}
+                style={{
+                  overlay: {
+                    position: 'fixed',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    paddingTop: '100px',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor: 'rgba(255, 255, 255, 0.75)'
+                  },
+                  content: {
+                    position: 'relative',
+                    // top: '40px',
+                    // left: '40px',
+                    // right: '40px',
+                    // bottom: '40px',
+                    border: '1px solid #ccc',
+                    background: '#fff',
+                    overflow: 'auto',
+                    WebkitOverflowScrolling: 'touch',
+                    borderRadius: '4px',
+                    outline: 'none',
+                    padding: '20px',
+                    height: '300px',
+                    width: '500px'
+                  }
+                }}
                 onRequestClose={() => this.setModalIsOpen(false)}>
                 <form className='modalForm'>
                   <label>Image URl:</label>
@@ -162,13 +193,14 @@ class App extends React.Component {
                   </div>
 
                 </form>
-                <div>
-                  <button onClick={() => this.setModalIsOpen(false)}>Close</button>
+                <div className='modalCloseBtn'>
+                  <button onClick={() => this.setModalIsOpen(false)}>X</button>
                 </div>
               </Modal>
 
 
             </div>
+
 
 
 

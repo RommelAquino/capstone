@@ -83,7 +83,38 @@ function ProductScreen(props) {
                     <Modal
                         isOpen={modalIsOpen}
                         shouldCloseOnOverlayClick={true}
-                        onRequestClose={() => setModalIsOpen(false)}>
+                        onRequestClose={() => setModalIsOpen(false)}
+
+                        style={{
+                            overlay: {
+                                position: 'fixed',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                paddingTop: '100px',
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                bottom: 0,
+                                backgroundColor: 'rgba(255, 255, 255, 0.75)'
+                            },
+                            content: {
+                                position: 'relative',
+                                // top: '40px',
+                                // left: '40px',
+                                // right: '40px',
+                                // bottom: '40px',
+                                border: '1px solid #ccc',
+                                background: '#fff',
+                                overflow: 'auto',
+                                WebkitOverflowScrolling: 'touch',
+                                borderRadius: '4px',
+                                outline: 'none',
+                                padding: '20px',
+                                height: '300px',
+                                width: '500px'
+                            }
+                        }}
+                    >
                         <form onSubmit={submitProduct}>
                             <label>Player:</label>
                             <input onChange={(e) => setName(e.target.value)} type="text" value={nameText} name="name" />
@@ -93,6 +124,10 @@ function ProductScreen(props) {
                             <input onChange={(e) => setPriceText(e.target.value)} type="text" value={priceText} name="price" />
                             <button type="submit">Update</button>
                         </form>
+
+                        <div className='modalCloseBtn'>
+                            <button onClick={() => setModalIsOpen(false)}>X</button>
+                        </div>
 
 
                     </Modal>
