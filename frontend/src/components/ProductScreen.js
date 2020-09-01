@@ -8,8 +8,10 @@ import Modal from 'react-modal';
 function ProductScreen(props) {
     const [product, setProduct] = useState({}); //product gets updated by setProduct
     const [modalIsOpen, setModalIsOpen] = useState(false); //modalIsOpen gets updated by setModalIsOpen
-    const [text, setText] = useState(""); //test gets updated by setText
+    const [imageText, setImageText] = useState(""); //text gets updated by setText
+    const [nameText, setName] = useState(""); //text gets updated by setText
     const [teamText, setTeamText] = useState(""); //product gets updated by setProduct
+    const [priceText, setPriceText] = useState(""); //product gets updated by setProduct
     useEffect(() => {
         const fetch = async () => {
             console.log(props.match.params.id);
@@ -41,10 +43,10 @@ function ProductScreen(props) {
         // const {state}=this
         // const {image, name, team, price}=state
         const data = {
-            name: text
-            // team: team,
+            name: nameText,
+            team: teamText,
             // image: image,
-            // price: parseFloat(price),
+            price: parseFloat(priceText),
         };
         ProductModel.updateProduct(data, product._id)
             .then((response) => {
@@ -84,7 +86,11 @@ function ProductScreen(props) {
                         onRequestClose={() => setModalIsOpen(false)}>
                         <form onSubmit={submitProduct}>
                             <label>Player:</label>
-                            <input onChange={(e) => setText(e.target.value)} type="text" value={text} name="name" />
+                            <input onChange={(e) => setName(e.target.value)} type="text" value={nameText} name="name" />
+                            <label>Team:</label>
+                            <input onChange={(e) => setTeamText(e.target.value)} type="text" value={teamText} name="team" />
+                            <label>Price:</label>
+                            <input onChange={(e) => setPriceText(e.target.value)} type="text" value={priceText} name="price" />
                             <button type="submit">Update</button>
                         </form>
 
