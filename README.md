@@ -40,6 +40,9 @@ Cardboard Collectors is created for sports cards collectors by sports card colle
 ### Product Detail Page
 <img src="https://trello-attachments.s3.amazonaws.com/5f3ee117cffb5f4313ae66fb/1200x790/70b01ec03ebb1c6bd1b6c852bfbb75d3/IMG_0593.jpg" alt ="wf" height="500px" width="500px">
 
+### List Product Modal
+<img src="https://trello-attachments.s3.amazonaws.com/5f3ee0dbfac13343823de391/1200x789/ee71e3d32d5650d6d87f830884a2a457/IMG_1938.JPG.jpg" alt="wf" height="500px" width="500px">
+
 
 
 ## :raised_hands::fire::raised_hands:Shoutouts :raised_hands::fire::raised_hands:
