@@ -45,6 +45,16 @@ Cardboard Collectors is created for sports cards collectors by sports card colle
 
 
 
+
+
+### To run:running: application
+1. Download Dependencies 
+``` npm i express mongoose bootstrap node react-router-dom react-router ```
+2. ``` npm init ``` 
+3. ```npm start``` in the frontend
+4. ```nodemon ``` in the backend
+
+
 ## :raised_hands::fire::raised_hands:Shoutouts :raised_hands::fire::raised_hands:
 * Kenny:fire:
 * Michael:fire:
@@ -55,4 +65,3 @@ Cardboard Collectors is created for sports cards collectors by sports card colle
 * Zach:fire:
 * Brian:fire:
 * My Wife :purple_heart:
-
