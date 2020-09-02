@@ -58,6 +58,7 @@ class App extends React.Component {
       [event.target.name]: event.target.value
     })
   }
+  // pre-populate input form with previous data
 
 
 
