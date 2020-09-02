@@ -43,9 +43,6 @@
   }
 }
 
-
-
-
 /* ------- Products------- */
 .product{
   margin-top: 10px;
@@ -67,11 +64,6 @@
   margin-top: 10px;
 }
 
-
-
-
-
-
 /* -------- Sell Cards Modal --------- */
 input {
   display: block;
@@ -84,7 +76,6 @@ input {
   position: absolute;
   top: 5px;
   right: 5px;
-
 }
 
 .modalCloseBtn button {
@@ -103,10 +94,3 @@ input {
 .main{
   background-color: rgb(197, 197, 197);
 }
-
-
-
-
-
-
-

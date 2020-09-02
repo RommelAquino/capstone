@@ -23,11 +23,3 @@ const ProductSchema = new Schema({
 
 const Product = mongoose.model('Product', ProductSchema);
 module.exports = Product;
-
-
-//  _id: '4',
-// name: 'Stephen Curry',
-// category: 'Football',
-// image: '/images/currypsa10.jpg',
-// team: 'Golden State Warriors',
-// price: 1000

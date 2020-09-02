@@ -5,12 +5,10 @@ import data from './data';
 import { BrowserRouter, Route, Link, Switch, withRouter } from 'react-router-dom';
 import HomeScreen from './components/HomeScreen';
 import ProductScreen from './components/ProductScreen';
-// import PostModel from './models/postModel'
 import ProductModel from '../src/models/productModel'
 import './App.css';
 
 Modal.setAppElement('#root')
-
 
 // class based components used (this.)
 class App extends React.Component {
@@ -36,10 +34,6 @@ class App extends React.Component {
     console.log(response);
   }
 
-  // componentDidMount() {
-  //   this.getProducts()
-  // }
-
   async getProducts2() {
     const response = await axios.get('http://localhost:3001/api/v1/product');
     this.setState({ cards: response.data });
@@ -58,14 +52,12 @@ class App extends React.Component {
       [event.target.name]: event.target.value
     })
   }
-  // pre-populate input form with previous data
+  // pre-populate input form with previous data here vvvvvv
 
 
 
   submitProduct(event) {
     event.preventDefault();
-    // const {state}=this
-    // const {image, name, team, price}=state
     const data = {
       name: this.state.name,
       team: this.state.team,
@@ -78,7 +70,6 @@ class App extends React.Component {
         this.setState({
           modalIsOpen: false
         })
-        // this.props.history.push()
         this.setState({ cards: [...this.state.cards, response] });
       });
   }
@@ -111,7 +102,6 @@ class App extends React.Component {
   render() {
     console.log(this.getProducts)
     return (
-      // empty element that doesn;t create any html i the browser
       <React.Fragment>
         <div className='grid-container'>
           <header className="header">
@@ -144,10 +134,8 @@ class App extends React.Component {
               <button className="sellButton" onClick={() => this.setModalIsOpen(true)}>Sell your cards!</button>
 
               <Modal
-                // className={"sellModalForm"}
                 isOpen={this.state.modalIsOpen}
                 shouldCloseOnOverlayClick={true}
-                // overlayClassName={"overlay"}
                 style={{
                   overlay: {
                     position: 'fixed',
@@ -162,10 +150,6 @@ class App extends React.Component {
                   },
                   content: {
                     position: 'relative',
-                    // top: '40px',
-                    // left: '40px',
-                    // right: '40px',
-                    // bottom: '40px',
                     border: '1px solid #ccc',
                     background: '#fff',
                     overflow: 'auto',
@@ -202,15 +186,11 @@ class App extends React.Component {
 
             </div>
 
-
-
-
             <div className="content">
               <Switch>
                 <Route path="/product/:id" render={(props) => (<ProductScreen {...props} getProducts={this.getProducts2} />)
                 } handleDelete={this.handleDelete} />
                 <Route path='/' exact={true} render={() => <HomeScreen cards={this.state.cards} />} />
-                {/* <Route path="/" exact={true} component={HomeScreen} />  */}
               </Switch>
             </div>
           </main>

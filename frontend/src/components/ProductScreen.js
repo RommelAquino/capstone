@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import ProductModel from '../models/productModel';
 import Modal from 'react-modal';
-// import './App.css';
-
-
 
 function ProductScreen(props) {
     const [product, setProduct] = useState({}); //product gets updated by setProduct
@@ -31,38 +28,19 @@ function ProductScreen(props) {
             .catch((err) => console.log(err));
         await props.getProducts();
     };
-
-    // const handleInputChange = (event) => {
-    //     this.setState({
-    //         [event.target.name]: event.target.value
-    //     })
-    // }
-
-
     const submitProduct = (event) => {
         event.preventDefault();
-        // const {state}=this
-        // const {image, name, team, price}=state
         const data = {
             name: nameText,
             team: teamText,
-            // image: image,
             price: parseFloat(priceText),
         };
         ProductModel.updateProduct(data, product._id)
             .then((response) => {
                 setProduct(response)
                 setModalIsOpen(false);
-                // this.setState({
-                //   modalIsOpen: false
-                // })
-                // this.props.history.push()
-                // this.setState({ cards: [...this.state.cards, response] });
             });
     }
-
-
-
 
     return (
         <div>
@@ -100,10 +78,6 @@ function ProductScreen(props) {
                             },
                             content: {
                                 position: 'relative',
-                                // top: '40px',
-                                // left: '40px',
-                                // right: '40px',
-                                // bottom: '40px',
                                 border: '1px solid #ccc',
                                 background: '#fff',
                                 overflow: 'auto',
@@ -140,42 +114,3 @@ function ProductScreen(props) {
     );
 }
 export default ProductScreen;
-// export default withRouter(ProductScreen);
-
-
-
-
-// import React, { component } from 'react';
-// import data from '../data';
-
-
-
-// function ProductScreen(props) {
-
-//     const product = data.products.find(x => x._id === props.match.params.id)
-
-//     console.log({ product })
-//     return (
-//         <div>
-//             <div>
-//                 <img src={product.image} alt="" />
-//             </div>
-//             <div><h1>{product.name}</h1></div>
-
-//             <div><h1>{product.team}</h1></div>
-//             <div><h1>{product.price}</h1></div>
-//             <div>
-//                 <button>Edit</button>
-//                 <button onClick={() => this.deleteProduct(product.id)}>Delete</button>
-//             </div>
-//         </div>
-//     )
-// }
-// export default ProductScreen;
-
-
-
-
-
-
-
