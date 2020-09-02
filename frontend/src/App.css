@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap');
+
+*{
+  font-family: 'Source Code Pro', monospace;
+}
+
 .App {
   text-align: center;
 }
@@ -38,7 +44,24 @@
 }
 
 
-/* ------- Product Detail Page ------- */
+
+
+/* ------- Products------- */
+.product{
+  margin-top: 10px;
+}
+
+.product-name{
+  font-size: 36px;
+}
+.product-team{
+  font-size: 24px;
+  color: black;
+}
+.product-price{
+  color: green;
+}
+
 
 .product:hover{
   margin-top: 10px;

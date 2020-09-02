@@ -15,7 +15,7 @@ function HomeScreen({ cards }) {
 								<img src={product.image} alt='Curry' />
 							</Link>
 						</div>
-						<div className='product.name'>
+						<div className='product-name'>
 							<Link to={'/product/' + product._id}>{product.name}</Link>
 						</div>
 						<div className='product-team'>{product.team}</div>
