@@ -30,6 +30,12 @@ Cardboard Collectors is created for sports cards collectors by sports card colle
 2. add hover effects
 3. Style the modal
 
+# ERD
+<img src="https://trello-attachments.s3.amazonaws.com/5f3ee0fb76fef46194e250ec/1199x746/b74bf7397754a06c8fcdef2228af8979/IMG_0596.jpg" alt="erd" height="500px" width="300px">
+
+# Wireframes
+
+
 ## :raised_hands::fire::raised_hands:Shoutouts :raised_hands::fire::raised_hands:
 * Kenny:fire:
 * Michael:fire:
@@ -41,4 +47,3 @@ Cardboard Collectors is created for sports cards collectors by sports card colle
 * Brian:fire:
 * My Wife :purple_heart:
 
-<img src="https://trello-attachments.s3.amazonaws.com/5f3ee0fb76fef46194e250ec/1199x746/b74bf7397754a06c8fcdef2228af8979/IMG_0596.jpg" alt="erd">
