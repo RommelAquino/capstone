@@ -14,18 +14,18 @@ Cardboard Collectors is created for sports cards collectors by sports card colle
 
 
 ### Sprints
-###### Sprint 1
+###### Sprint 1:running:
 1. Create folder/file boiilerplate (backend-routes, controllers, models. frontend - public, src, components)
 2. install dependencies
 3. make all pages (homepage, product page)
 4. components (navbar, sidebar, modal)
 
-###### Sprint 2
+###### Sprint 2:running::running:
 1. Begin working on CRUD routes (create,read,update,delete)
 2. get routes to connect and render data onto the page
 3. use modals for crud
 
-###### Sprint 3
+###### Sprint 3:running::running::running:
 1. Style the page
 2. add hover effects
 3. Style the modal
@@ -40,3 +40,5 @@ Cardboard Collectors is created for sports cards collectors by sports card colle
 * Zach:fire:
 * Brian:fire:
 * My Wife :purple_heart:
+
+<img src="https://trello-attachments.s3.amazonaws.com/5f3ee0fb76fef46194e250ec/1199x746/b74bf7397754a06c8fcdef2228af8979/IMG_0596.jpg" alt="erd">
